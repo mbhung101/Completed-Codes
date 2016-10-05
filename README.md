@@ -1,2 +1,2 @@
 # Completed-Codes
-A compilation of coding challenges that are completed
+A compilation of coding challenges that are completed ... well enough
