@@ -1,0 +1,25 @@
+function foldArray(array, runs){
+	if (runs === 0){
+		return array
+	}
+	else if (array.length === 1){
+		return foldArray (array,runs-1)
+	}
+	else if (array.length % 2 === 0){
+		var newArrE = []
+		for (i=0;i<array.length/2;i++){
+			newArrE.push(array[i]+array[array.length-1-i])
+		}
+		console.log (newArrE)
+		return foldArray (newArrE,runs-1)
+	}
+	else {
+		var newArrO = []
+		for (i=0;i<(Math.floor(array.length/2));i++){
+		newArrO.push(array[i]+array[array.length-1-i])
+}
+		newArrO.push(array[Math.floor (array.length / 2)])
+		console.log (newArrO)
+		return foldArray (newArrO,runs-1)
+	}
+}
