@@ -1,0 +1,25 @@
+function TripleDouble(num1,num2) { 
+  var numbers1 = num1.toString(), numbers2 = num2.toString(), triples = [], doubles = []
+  numbers1 = numbers1.split(''), numbers2 = numbers2.split('')
+  for (i=0;i<numbers1.length;i++){
+    if (numbers1[i] === numbers1[i+1] && numbers1[i] === numbers1[i+2]){
+      triples.push(numbers1[i])
+    }
+  }
+  for (var i=0;i<numbers2.length;i++){
+      if (numbers2[i] === numbers2[i+1]){
+      doubles.push (numbers2[i])
+    }
+  }
+  var larger = (doubles.length >= triples.length) ? doubles : triples, smaller = (doubles.length < triples.length) ? doubles : triples
+  console.log (larger)
+  console.log (smaller)
+  for (i = 0; i<larger.length;i++){
+    if (smaller.indexOf(larger[i] > -1) && smaller.length !== 0){
+        return 1
+    }
+    else {
+        return 0
+    }
+  }
+}
