@@ -12,8 +12,6 @@ function TripleDouble(num1,num2) {
     }
   }
   var larger = (doubles.length >= triples.length) ? doubles : triples, smaller = (doubles.length < triples.length) ? doubles : triples
-  console.log (larger)
-  console.log (smaller)
   for (i = 0; i<larger.length;i++){
     if (smaller.indexOf(larger[i] > -1) && smaller.length !== 0){
         return 1
