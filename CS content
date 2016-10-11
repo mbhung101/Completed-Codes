@@ -1,0 +1,19 @@
+function gcContent(dna) {
+if (dna.length === 0){
+	return 0
+}
+var gs = dna.match (/[G]/gi), cs = dna.match (/[C]/gi)
+if (gs === null && cs === null){
+	return -0
+}
+else if (cs === null){
+	return (gs.length / dna.length) * 100
+}
+else if (gs === null){
+	return (cs.length / dna.length) * 100
+}
+else {
+	gcs = gs.concat(cs)
+	return gcs.length / dna.length * 100
+}
+}
