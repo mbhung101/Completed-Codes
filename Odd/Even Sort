@@ -1,0 +1,14 @@
+function sortItOut(array){
+  var evens = [], odds = []
+    for (var i=0;i<array.length;i++){
+      if (Math.floor(array[i]) % 2 === 0){
+        evens.push(array[i])
+      }
+      else {
+        odds.push(array[i])
+      }
+  var sortedEvens = evens.sort(function(a,b){return b-a})
+  var sortedOdds =  odds.sort(function(a,b){return a-b}) 
+  }
+  return sortedOdds.concat(sortedEvens)
+}
