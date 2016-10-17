@@ -1,23 +1,29 @@
 function TripleDouble(num1,num2) { 
-  var numbers1 = num1.toString(), numbers2 = num2.toString(), triples = [], doubles = []
-  numbers1 = numbers1.split(''), numbers2 = numbers2.split('')
-  for (i=0;i<numbers1.length;i++){
-    if (numbers1[i] === numbers1[i+1] && numbers1[i] === numbers1[i+2]){
-      triples.push(numbers1[i])
+    var numsOne = num1.toString(), numsTwo = num2.toString()
+    numsOne = numsOne.match(/[0-9]/g), numsTwo =numsTwo.match(/[0-9]/g)
+    function TripleCheck (x){
+    	var triples = []
+    	for (i=0;i<x.length;i++){
+    		if (x[i] === x[i+1] && x[i] === x[i+2]){
+    			triples.push (x[i])
+    		}
+    	}
+    	return triples
     }
-  }
-  for (var i=0;i<numbers2.length;i++){
-      if (numbers2[i] === numbers2[i+1]){
-      doubles.push (numbers2[i])
+    function DoubleCheck (y){
+    	var doubles = []
+    	for (i=0;i<y.length;i++){
+    		if (y[i] === y[i+1]){
+    			doubles.push(y[i])
+    		}
+    	}
+    	return doubles
     }
-  }
-  var larger = (doubles.length >= triples.length) ? doubles : triples, smaller = (doubles.length < triples.length) ? doubles : triples
-  for (i = 0; i<larger.length;i++){
-    if (smaller.indexOf(larger[i] > -1) && smaller.length !== 0){
-        return 1
+    var triples = TripleCheck(numsOne), doubles = DoubleCheck(numsTwo)
+    for (i=0;i<doubles.length;i++){
+    	if (triples.indexOf(doubles[i])>-1){
+    		return 1
+    	}
     }
-    else {
-        return 0
-    }
-  }
+    return 0
 }
