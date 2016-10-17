@@ -1,0 +1,26 @@
+function simplify(number){
+	var soln = '', numbers = number.toString()
+	numbers = numbers.match(/[0-9]/g)
+	for (i=0;i<numbers.length;i++){
+		if (i === numbers.length-1){
+			if (numbers[i]!== '0'){
+				soln += numbers[i]
+			}
+			else {
+				var shift = soln.split('')
+				shift.pop()
+				console.log (shift)
+				soln = ''
+				for (i=0;i<shift.length;i++){
+					soln += shift[i]
+				}
+			}
+		}
+		else if (numbers[i] !== '0'){
+		soln += numbers[i] + '*'
+		var tens = Math.pow (10,(numbers.length-i-1))
+		soln += tens.toString() + '+'
+		}
+	}
+	return soln
+}
