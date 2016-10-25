@@ -1,0 +1,18 @@
+function StockPicker(arr) { 
+	var large = 0
+	for (i=0;i<arr.length;i++){
+		for (j=arr.length-1;j>-1;j--){
+			if ((arr[j] - arr[i] > large) && forwardCheck(arr[i],arr[j],arr) === true){
+				large = arr[j] - arr[i]
+			}
+		}
+	}
+	return large
+}
+
+function forwardCheck (num1,num2,arr1){
+	if (arr1.indexOf (num1) < (arr1.indexOf (num2))) {
+		return true
+	}
+	return false
+}
