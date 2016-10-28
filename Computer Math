@@ -1,0 +1,52 @@
+// function MissingDigit(str) { 
+// 	var singles = str.match (/\S/g)
+// 	var chars = str.match(/\S+/g)
+// 	var left = chars.slice (0,chars.indexOf('=')), right = chars.slice (chars.indexOf('=')+1,chars.length)
+// 	var xside = singles.indexOf ('x') < singles.indexOf ('=') ? left : right
+// 	var numside = singles.indexOf ('x') > singles.indexOf ('=') ? left : right
+
+// for (i=0;i<xside.length;i++){
+// 	if (xside[i].indexOf ('x') > -1){
+// 		numactual.push (parseInt(xside[i]))
+// 		numactual.push ('x')
+// 	}
+// 	else if (parseInt(xside[i])){
+// 		numactual.push (parseInt(xside[i]))
+// 	}
+// 	else{
+// 		numactual.push(xside[i])
+// 	}
+// }
+
+function mathReucusor (numactual){
+for (i=0;i<numactual.length;i++){
+	if (typeof numactual[i] !== 'number'){
+		if (numactual[i] !== 'x'){
+			if (numactual === '+'){
+				numside -= numactual[i+1]
+				
+			}
+			else if (numactual[i] === '-'){
+				numside += numactual[i+1]
+			}
+		}
+	}
+}
+}
+
+
+function addition (num1,num2){
+	return num1 + num2
+}
+
+function subtraction (num1,num2){
+	return num1 - num2
+}
+
+function multiplication (num1,num2){
+	return num1 * num2
+}
+
+function division (num1,num2){
+	return num1 / num2
+}
