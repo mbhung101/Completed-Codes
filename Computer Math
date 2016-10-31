@@ -1,0 +1,55 @@
+function MissingDigit(str) { 
+	var chars = str.match(/\S+/g), xvar = '', equals = '' , other = '', newEq = [], sign = ''
+	for (i=0;i<chars.length;i++){
+		if (isNaN(parseInt(chars[i]))){
+			newEq.push(chars[i])
+		}
+		else {
+			newEq.push(parseInt(chars[i]))
+		}
+	}
+	// assigns xvar to the character cotaining x and equals to the remainder 
+	for (i=0;i<chars.length;i++){
+		if (chars[i].indexOf('x')>-1){
+			xvar = chars[i]
+		}
+		else if ((i===0||i===chars.length-1) && (chars[i+1] || chars[i-1]) === '='){
+			equals = (newEq[i])
+		}
+	}
+	// assigns the remaining variable to other
+	for (i=0;i<chars.length;i++){
+		if (isNaN(parseInt(chars[i])) === false){
+			if (newEq[i] !== equals && newEq[i] !== xvar){
+				other = newEq[i]
+				sign = newEq[i-1]
+			}	
+		}
+		}
+	// console.log (chars)
+	// console.log (newEq)
+	// console.log (xvar)
+	// console.log (equals)
+	// console.log (other)
+	// console.log (sign)
+	if (sign === '+'){
+		equals -= other
+	}
+	if (sign === '-'){
+		equals += other
+	}
+	if (sign === '*'){
+		equals /= other
+	}
+	if (sign === '/'){
+		equals *= other
+	}
+	console.log (equals)
+	var split = xvar.split('')
+	for (i=0;i<split.length;i++){
+		if (split[i] !== 'x'){
+			equals /= parseInt(split[i])
+		}
+	}
+	return equals
+}
