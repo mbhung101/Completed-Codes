@@ -1,0 +1,30 @@
+function KUniqueCharacters(str) { 
+	var uniqueCount = parseInt (str[0]), split = str.split(""), uniqueChars = [], curLong = '' , curstr = ''
+	split.shift()
+	for (i=0;i<split.length;i++){
+		console.log ("1" + split[i])
+			console.log (curstr)
+		if (curstr.length > curLong.length){
+			curLong = curstr
+		}
+		curstr = ''
+		for (j=i;j<split.length;j++){
+			if (uniqueChars.length > uniqueCount){
+				if (curstr.length > curLong.length){
+					curLong = curstr.slice(0,curstr.length-1)
+				}
+				uniqueChars = []
+				curstr = ''
+				break ;
+			}
+			else if (uniqueChars.indexOf(split[j]) === -1){
+				uniqueChars.push(split[j])
+				curstr += split[j]
+			}
+			else {
+				curstr += split[j]
+			}
+		}
+	}
+	return curLong
+}
