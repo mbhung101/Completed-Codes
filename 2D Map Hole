@@ -1,0 +1,15 @@
+function BitmapHoles(strArr) { 
+var counter = 0 
+function find0s (strArr){
+for (i=0;i<arr[0].length;i++){
+	for (j=0;j<arr.length;j++){
+		curRow = ''
+		if (arr[i][j] === '0'){
+			counter ++
+			
+				}
+			}
+		}
+	}
+}
+   
