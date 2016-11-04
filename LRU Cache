@@ -1,0 +1,23 @@
+function LRUCache(strArr) { 
+	var curCache = []
+	for (i=0;i<strArr.length;i++){
+		console.log (strArr[i])
+		if (curCache.length === 5 && curCache.indexOf(strArr[i])>-1){
+			console.log ('1')
+			curCache.push(strArr[i])
+			curCache = curCache.shift()
+		}
+		else if (curCache.indexOf(strArr[i])!== -1){
+			console.log ('2')
+			var left = curCache.slice(0,curCache.indexOf(strArr[i]))
+			var right = curCache.slice(curCache.indexOf(strArr[i])+1,curCache.length)
+		}
+		else{
+			console.log ('3')
+			curCache.push(strArr[i])
+		}
+	}
+	return curCache
+}
+
+LRUCache (["A", "B", "A", "C", "A", "B"])
