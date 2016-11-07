@@ -1,0 +1,12 @@
+function AlphabetSearching(str) { 
+	var letters = str.match(/[a-z]/g).sort(), letterCounter = 0
+	for (i=0;i<letters.length;i++){
+		if (letterCounter === 25){
+			return true
+		}
+		else if (letters[i] !== letters[i+1]){
+			letterCounter ++
+		}
+	}
+	return false
+}
