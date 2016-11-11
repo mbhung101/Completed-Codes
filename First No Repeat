@@ -1,0 +1,21 @@
+function firstNonRepeatingLetter(s) {
+	if (s.length === 0){
+		return ''
+	}
+	if (s.length === 1){
+		return s[0]
+	}
+	var split = s.split(''), splitSave = []
+	for (i=0;i<split.length;i++){
+		splitSave.push(split[i])
+	}
+	split.sort()
+	if (split[0] === split[split.length-1]){
+		return ''
+	}
+	for (i=0;i<split.length;i++){
+		if (split[split.indexOf(splitSave[i])] !== split[split.indexOf(splitSave[i])+1]){
+			return splitSave[i]
+		}
+	}
+}
