@@ -1,0 +1,15 @@
+function Mormons(startingNumber, reach, target){
+  var counter = 0 
+  missonCount (startingNumber,reach,target)
+  function missonCount (startingNumber,reach,target){
+  if (startingNumber >= target){
+    return counter 
+    }
+  else {
+    counter ++
+    var totalMormons = (startingNumber * reach + startingNumber)
+    missonCount (totalMormons,reach,target)
+  }
+  }
+  return counter
+}
