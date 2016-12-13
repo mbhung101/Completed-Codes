@@ -1,0 +1,15 @@
+function NearestSmallerValues(arr) { 
+  var transformed = []
+  for (i=0;i<arr.length;i++){
+    for (j=i;j>-1;j--){
+      if (arr[j]<arr[i]){
+        transformed.push(arr[j])
+        {break}
+      }
+      else if (j === 0){
+        transformed.push(-1)
+      }
+    }
+  }
+  return transformed
+}
