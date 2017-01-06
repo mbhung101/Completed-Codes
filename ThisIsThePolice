@@ -1,0 +1,50 @@
+var manFirstNames = ['Joe','Tim','Todd','Dick','Boris','Rolando','Fabio']
+var ladyFirstNames = ['Tina','Lexi','Linda','Sari','Rhianna','Cali']
+var lastNames = ['McDuck','Ficus','Garbage','Johnson','Okaka','NiggerNavy','Trump']
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function cop (firstName,lastName,age,rating){
+  this.gender = getRandomIntInclusive (0,1) ? 'male' : 'female'
+  if (this.gender === 'male'){
+  this.firstName = manFirstNames[getRandomIntInclusive(0,manFirstNames.length-1)]
+  }
+  else {
+  this.firstName = ladyFirstNames[getRandomIntInclusive(0,ladyFirstNames.length-1)]    
+  }
+  this.lastName = lastNames[getRandomIntInclusive(0,lastNames.length-1)]
+  this.age = getRandomIntInclusive (18,80)
+  this.rating = div10Rate()
+  function div10Rate (){
+    var num = 1
+    while (num % 10 !==0){
+     num = getRandomIntInclusive (0,1500) 
+    }
+    return(num)  
+  }
+}
+
+function rosterFiller (){
+var roster = []
+while (roster.length < 6){
+  roster.push (new cop())
+}
+return roster
+}
+
+var roster = rosterFiller ()
+console.log (roster)
+
+function mission (passRate,maxCops,storyText,...cops){
+  var totalRate = 0
+  for (i=0; i<cops.length; i++){
+    totalRate += (cops[i].rating)
+  }
+  
+}
+
+mission(1,2,true,true,'a',roster[0],roster[2])
