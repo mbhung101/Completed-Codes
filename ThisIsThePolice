@@ -1,6 +1,6 @@
 var manFirstNames = ['Joe','Tim','Todd','Dick','Boris','Rolando','Fabio']
 var ladyFirstNames = ['Tina','Lexi','Linda','Sari','Rhianna','Cali']
-var lastNames = ['McDuck','Ficus','Garbage','Johnson','Okaka','NiggerNavy','Trump']
+var lastNames = ['McDuck','Ficus','Garbage','Johnson','Okaka','Trump']
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
