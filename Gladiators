@@ -1,0 +1,86 @@
+var gladiatorStable = [];
+var firstNames = ['Ted','Kimbo','Maximus','Bobert','Leonidas','Franklin', 'Yang', 'Dilbert', 'Cornholio', 'Boris', 'Allah', 'Mingus', 'DuFrane', 'Brown'];
+var titles = ['The Unwise','The Bear Human', 'The Irresistable','The Horny','The Quite Large', 'The Obese','The Bloodthirster', 'The Cat Lover','The Chosen One', 'The Short and Stout', 'The Short-Lived', 'The Rapist', 'The Self-Depricating'];
+var weaponList = [{name:'trident and net', health : 10, attack: 25, defense:10},{name:'sword and board',health:15, attack:10, defense: 20},{name:'two hand axe',health:-5,attack:40,defense:-10},{name:'two swords',health:-5,attack:35,defense:-7}, {name:'heavy armor and tiny sword',health: 50, attack: -15, defense: 50}];
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function gladiator (){
+  this.name = firstNames[getRandomIntInclusive(0,firstNames.length-1)] + " " + titles[getRandomIntInclusive(0,titles.length-1)];
+  this.health = getRandomIntInclusive (250,500);
+  this.attack = getRandomIntInclusive (10,50);
+  this.defense = getRandomIntInclusive (10,50);
+}
+
+function arm (weapon,gladiator){
+  gladiator.weapon = weapon.name;
+  for (var i in weapon){
+    if (typeof(gladiator[i])==='number'){
+      gladiator[i] += weapon[i];
+    }  
+  }
+}
+
+
+function rosterFill (number){
+  while (gladiatorStable.length < number){
+    var tempGlad = new gladiator ();
+    gladiatorStable.push(tempGlad);
+  }
+}
+
+rosterFill (6);
+
+function armAll (gladList){
+  for (var i in gladList){
+    arm(weaponList[getRandomIntInclusive(0,weaponList.length-1)],gladList[i])
+  }
+}
+
+armAll (gladiatorStable)
+
+function fight (gladList){
+  var glad1 = gladList[getRandomIntInclusive(0,gladList.length-1)];
+  var newList = gladList.slice(0,gladList.indexOf(glad1)).concat(gladList.slice(gladList.indexOf(glad1)+1,gladList.length));
+  var glad2 = newList[getRandomIntInclusive(0,newList.length-1)];
+  console.log ('The fight between ' + glad1.name + ' and ' + glad2.name + ' is commencing')
+  console.log (glad1)
+  console.log (glad2)
+  return toTheDeath(glad1,glad2)
+  var counter = 0
+  function toTheDeath (glad1,glad2){
+    if (glad1.health <= 0 && glad2.health <= 0){
+      return ('the fighers have killed eachother')
+    }
+    else if (glad1.health <= 0 || glad2.health <=0){
+      return (glad1.health > glad2.health) ? glad1.name + ' wins!' : glad2.name + ' wins!'
+    }
+    else if (counter > 25){
+      return ('Neither combatant was able to kill the other in a timely manner')
+    }
+    else {
+      var glad1Damage = getRandomIntInclusive (-10,25) + glad1.attack - glad2.defense
+      if (glad1Damage < 0) {
+        glad1Damage = 0
+      }
+      console.log (glad1.name + ' does ' + glad1Damage + ' damage')
+      var glad2Damage = getRandomIntInclusive (-10,25) + glad2.attack - glad1.defense
+      if (glad2Damage < 0) {
+        glad2Damage = 0
+      } 
+      console.log (glad2.name + ' does ' + glad2Damage + ' damage')
+      glad1.health -= glad2Damage
+      glad2.health -= glad1Damage
+      console.log (glad1.name + ' has ' + glad1.health + ' health reamaining')
+      console.log (glad2.name + ' has ' + glad2.health + ' health reamaining')
+      counter ++
+      return toTheDeath(glad1,glad2)
+    }
+  }
+}
+
+fight (gladiatorStable)
